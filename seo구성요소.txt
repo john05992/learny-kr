@@ -1,0 +1,48 @@
+[ learny.kr — 러니 | 학원 체험 수업 예약 ]
+
+■ title: 러니 | 학원 체험 수업 예약
+■ description: 전국 교육기관 체험 수업 일정을 조회하고 예약하세요. 과목별·지역별 체험 수업 제공.
+■ keywords: 체험수업, 무료체험, 교육예약, 체험학습, 수업일정, 과목별체험, 교육체험
+
+─────────────────────────────────────────
+
+<!-- 구조화 데이터: EducationalOrganization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://learny.kr/#organization",
+  "name": "러니",
+  "alternateName": ["Learny", "러니 체험"],
+  "url": "https://learny.kr",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://learny.kr/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
+  "image": "https://learny.kr/apple-touch-icon.png",
+  "description": "학원 체험 수업 일정 조회 및 예약",
+  "areaServed": "대한민국",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR"
+  }
+}
+</script>
+
+<!-- 구조화 데이터: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://learny.kr/#website",
+  "name": "러니",
+  "alternateName": ["Learny", "러니 체험"],
+  "url": "https://learny.kr",
+  "publisher": {
+    "@id": "https://learny.kr/#organization"
+  },
+  "inLanguage": "ko-KR"
+}
+</script>
