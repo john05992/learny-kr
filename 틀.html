@@ -6,6 +6,13 @@
   <title>{{title}}</title>
   <meta name="robots" content="index,follow">
   <meta name="description" content="{{meta}}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{meta}}">
+  <meta property="og:url" content="{{페이지url}}">
+  <meta property="og:image" content="https://learny.kr/img/ly-interior.webp">
+  <meta property="og:image:width" content="2048">
+  <meta property="og:image:height" content="1365">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://nam.veta.naver.com" crossorigin>
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -224,22 +231,26 @@
     .ly-cur-item::before { content:'·'; flex-shrink:0; color:#FF4714; margin-top:1px; font-weight:900; }
     .ly-cur-item strong { font-weight:700; color:#fff; }
 
+    /* ── AI 이미지 ── */
+    .ly-ai-img-wrap { background: #fff; padding: 0 24px 56px; }
+    .ly-ai-img { border-radius: 20px; margin: 0 auto; max-width: 720px; width: 100%; display: block; }
+
     /* ── 추천 ── */
-    .ly-rec-section { background:#fff; padding:72px 20px 80px; }
-    .ly-rec-inner { max-width:900px; margin:0 auto; }
-    .ly-rec-eyebrow { letter-spacing:.14em; text-transform:uppercase; text-align:center; font-weight:900; color:#FF4714; font-size:.72rem; margin-bottom:12px; }
-    .ly-rec-title { line-height:1.35; color:#111; margin-bottom:48px; letter-spacing:-.04em; text-align:center; font-weight:900; font-size:clamp(1.6rem,4vw,2.2rem); }
-    .ly-rec-cards { flex-direction:column; gap:16px; display:flex; }
+    .ly-rec-section { padding:72px 20px 80px; background:#fff; }
+    .ly-rec-inner { margin:0 auto; max-width:900px; }
+    .ly-rec-eyebrow { font-size:.72rem; color:#FF4714; text-transform:uppercase; text-align:center; letter-spacing:.14em; margin-bottom:12px; font-weight:900; }
+    .ly-rec-title { color:#111; margin-bottom:48px; letter-spacing:-.04em; font-size:clamp(1.6rem,4vw,2.2rem); text-align:center; line-height:1.35; font-weight:900; }
+    .ly-rec-cards { display:flex; gap:16px; flex-direction:column; }
     @media(min-width:640px){ .ly-rec-cards{ flex-direction:row; gap:18px; } .ly-rec-card{ flex:1; } }
-    .ly-rec-card { border-radius:20px; display:flex; position:relative; gap:14px; background:#fafafa; border:1px solid #f0f0f0; flex-direction:column; overflow:hidden; padding:28px 24px 26px; }
-    .ly-rec-card::before { height:3px; content:''; position:absolute; background:linear-gradient(90deg,#FF4714,#f7b21c); right:0; left:0; top:0; }
+    .ly-rec-card { gap:14px; border-radius:20px; padding:28px 24px 26px; background:#fafafa; position:relative; display:flex; border:1px solid #f0f0f0; overflow:hidden; flex-direction:column; }
+    .ly-rec-card::before { right:0; height:3px; left:0; content:''; top:0; position:absolute; background:linear-gradient(90deg,#FF4714,#f7b21c); }
     .ly-rec-num { font-size:2.6rem; font-weight:900; background:linear-gradient(135deg,#FF4714,#f7b21c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
-    .ly-rec-card-title { color:#111; font-size:1.08rem; line-height:1.45; font-weight:900; }
-    .ly-rec-card-desc { line-height:1.75; flex:1; color:#888; font-size:.83rem; }
-    .ly-rec-check { display:flex; font-weight:700; color:#444; border-radius:8px; background:#fff5f2; align-items:center; font-size:.82rem; gap:7px; padding:8px 12px; }
-    .ly-rec-check::before { font-weight:900; color:#FF4714; flex-shrink:0; content:'✓'; font-size:.9rem; }
-    .ly-rec-footer { background:linear-gradient(135deg,#fff7f4,#fffdf0); text-align:center; padding:28px 24px; border:1px solid #fde8df; margin-top:44px; border-radius:16px; }
-    .ly-rec-footer-text { font-size:clamp(1rem,3vw,1.18rem); color:#111; line-height:1.7; font-weight:700; }
+    .ly-rec-card-title { line-height:1.45; font-weight:900; color:#111; font-size:1.08rem; }
+    .ly-rec-card-desc { color:#888; flex:1; line-height:1.75; font-size:.83rem; }
+    .ly-rec-check { color:#444; background:#fff5f2; padding:8px 12px; display:flex; font-weight:700; border-radius:8px; align-items:center; gap:7px; font-size:.82rem; }
+    .ly-rec-check::before { flex-shrink:0; color:#FF4714; content:'✓'; font-size:.9rem; font-weight:900; }
+    .ly-rec-footer { border-radius:16px; border:1px solid #fde8df; margin-top:44px; background:linear-gradient(135deg,#fff7f4,#fffdf0); padding:28px 24px; text-align:center; }
+    .ly-rec-footer-text { font-size:clamp(1rem,3vw,1.18rem); color:#111; font-weight:700; line-height:1.7; }
     .ly-rec-footer-hl { background:linear-gradient(90deg,#FF4714,#f7b21c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:900; }
 
     /* ── SECTIONS COMMON (유동 영역) ── */
@@ -248,7 +259,7 @@
     .ly-sec-dark { background: #f8f8fa; }
     .ly-sec-light { background: #fdfcf8; }
     .ly-sec-mid { background: #f4f4f0; }
-    .ly-sec h2 { margin-bottom: 20px; line-height: 1.3; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 900; word-break: keep-all; color: #111; letter-spacing: -.03em; }
+    .ly-sec h2 { margin-bottom: 20px; letter-spacing: -.03em; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 900; word-break: keep-all; color: #111; line-height: 1.3; }
     .ly-sec h3 { margin-bottom: 16px; font-size: 1.05rem; margin-top: 28px; font-weight: 900; line-height: 1.5; color: #111; }
     .ly-sec-divider { margin-bottom: 24px; background: #FF4714; width: 48px; height: 3px; border-radius: 2px; }
     .ly-body-text { word-break: keep-all; color: #555; font-size: 1rem; line-height: 1.85; }
@@ -298,41 +309,42 @@
     .ly-lk-section { background: #f8f8f6; border-bottom: 1px solid #ebebeb; padding: 64px 24px 56px; }
     .ly-lk-eyebrow { text-transform: uppercase; margin-bottom: 12px; letter-spacing: .22em; color: #FF4714; display: block; font-size: .68rem; font-weight: 900; }
     .ly-lk-section h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.25; color: #111; letter-spacing: -.04em; margin-bottom: 36px; font-weight: 900; }
+    #ly-lk-section h3 { letter-spacing: -.04em; color: #111; font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.25; font-weight: 900; margin-bottom: 36px; }
     .ly-lk-group { margin-bottom: 28px; }
     .ly-lk-group:last-child { margin-bottom: 0; }
-    .ly-lk-h3 { margin-bottom: 12px; text-transform: uppercase; color: #FF4714; padding-bottom: 10px; letter-spacing: .18em; display: block; font-size: .72rem; border-bottom: 2px solid #FF4714; font-weight: 900; }
-    .ly-lk-grid { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); display: grid; gap: 10px; }
-    .ly-lk-item { font-weight: 700; background: #fff; font-size: .84rem; white-space: nowrap; overflow: hidden; border: 1.5px solid #e8e8e8; color: #333; text-align: center; text-decoration: none; height: 52px; line-height: 52px; transition: all .2s; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.04); display: block; padding: 0 16px; text-overflow: ellipsis; }
-    .ly-lk-item:hover { background: #FF4714; border-color: #FF4714; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,71,20,.28); }
+    .ly-lk-h3 { padding-bottom: 10px; text-transform: uppercase; font-weight: 900; border-bottom: 2px solid #FF4714; display: block; margin-bottom: 12px; font-size: .72rem; letter-spacing: .18em; color: #FF4714; }
+    .ly-lk-grid { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; display: grid; }
+    .ly-lk-item { font-weight: 700; border: 1.5px solid #e8e8e8; white-space: nowrap; padding: 0 16px; background: #fff; font-size: .84rem; text-decoration: none; color: #333; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.04); text-overflow: ellipsis; height: 52px; transition: all .2s; line-height: 52px; display: block; overflow: hidden; }
+    .ly-lk-item:hover { background: #FF4714; transform: translateY(-2px); color: #fff; box-shadow: 0 6px 20px rgba(255,71,20,.28); border-color: #FF4714; }
     @media (max-width: 480px) {
       .ly-lk-section { padding: 48px 20px 44px; }
-      .ly-lk-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .ly-lk-item { height: 48px; line-height: 48px; font-size: .82rem; }
+      .ly-lk-grid { gap: 8px; grid-template-columns: repeat(2, 1fr); }
+      .ly-lk-item { line-height: 48px; font-size: .82rem; height: 48px; }
       .ly-monologue { font-size: 1.35rem; }
       .ly-fact-title { font-size: 1.9rem; }
     }
 
     /* ── 방법론 이미지 ── */
     .ly-method-section { background: #fff; padding: 0 24px 72px; }
-    .ly-method-inner { max-width: 480px; margin: 0 auto; }
-    .ly-method-img { border-radius: 20px; display: block; box-shadow: 0 8px 28px rgba(0,0,0,.10); width: 100%; }
+    .ly-method-inner { margin: 0 auto; max-width: 480px; }
+    .ly-method-img { box-shadow: 0 8px 28px rgba(0,0,0,.10); border-radius: 20px; display: block; width: 100%; }
 
     /* learny.kr micro-variation */
     .ly-sec { padding: 96px 28px; }
     .ly-planner-section { padding: 94px 28px 104px; }
     .ly-brand-header { padding: 78px 28px 34px; }
-    .ly-text-card { border-radius: 22px; padding: 38px 36px; }
+    .ly-text-card { padding: 38px 36px; border-radius: 22px; }
     .ly-text-card-light { padding: 38px 36px; border-radius: 22px; }
     .ly-faq-item { border-radius: 16px; }
-    .ly-rec-card { padding: 30px 28px 28px; border-radius: 22px; }
+    .ly-rec-card { border-radius: 22px; padding: 30px 28px 28px; }
     .ly-body-text { line-height: 1.83; }
     .ly-monologue { font-size: 1.57rem; line-height: 1.46; }
     .ly-faq-a { line-height: 1.77; }
     .ly-rec-card-desc { line-height: 1.74; }
-    .ly-header-logo { letter-spacing: .04em; color: #FF4714; }
+    .ly-header-logo { color: #FF4714; letter-spacing: .04em; }
     /* dynamic section */
     .ly-sec h2 { letter-spacing: -.03em; font-size: clamp(1.5rem,3.2vw,2rem); }
-    .ly-sec-divider { width: 44px; height: 3px; background: #FF4714; }
+    .ly-sec-divider { height: 3px; background: #FF4714; width: 44px; }
     .ly-sec-light { background: #fefefc; }
     .ly-sec-dark { background: #f9f9f8; }
     .ly-sec-mid { background: #f4f4f1; }
@@ -442,7 +454,7 @@
     <p class="ly-monologue">공부법을 몰라서<br>다녀도 효과가 없어요...</p>
     <p class="ly-monologue">공부 의지가 없어<br>걱정이에요...</p>
     <div class="ly-fact-box">
-      <p class="ly-fact-title">다녀온 학원들</p>
+      <p class="ly-fact-title">{{지역}} {{키워드}}</p>
       <p class="ly-fact-title"><span class="ly-simple-underline">이거 챙기셨나요?</span></p>
     </div>
   </div>
@@ -738,6 +750,8 @@
   </div>
 </section>
 
+{{랜덤이미지섹션}}
+
 <section class="ly-planner-section">
   <div class="ly-planner-inner">
     <p class="ly-planner-eyebrow">ACADEMY LOCATION</p>
@@ -763,7 +777,7 @@
      유동 영역 (DYNAMIC — result.html JSON)
      ════════════════════════════════════════════ -->
 
-<section class="ly-sec ly-sec-light">
+<section class="ly-sec ly-sec-light" id="sec1">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section1.h2}}</h2>
@@ -777,7 +791,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-dark">
+<section class="ly-sec ly-sec-dark" id="sec2">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section2.h2}}</h2>
@@ -812,10 +826,10 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-mid">
+<section class="ly-sec ly-sec-mid" id="sec3">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
-    <h2>{{section3.h2}}</h2>
+    <h2>{{지역}} 관리 학교</h2>
     <p class="ly-body-text">{{section3.p}}</p>
     <ul class="ly-check-list">
       <li class="ly-check-item"><span class="ly-check-icon">✓</span>{{section3.1}}</li>
@@ -825,7 +839,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-light">
+<section class="ly-sec ly-sec-light" id="sec4">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section4.h2}}</h2>
@@ -835,7 +849,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-dark">
+<section class="ly-sec ly-sec-dark" id="sec5">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section5.h2}}</h2>
@@ -843,7 +857,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-mid">
+<section class="ly-sec ly-sec-mid" id="sec6">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section6.h2}}</h2>
@@ -851,7 +865,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-light">
+<section class="ly-sec ly-sec-light" id="sec7">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section7.h2}}</h2>
@@ -861,7 +875,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-dark">
+<section class="ly-sec ly-sec-dark" id="sec8">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section8.h2}}</h2>
@@ -874,7 +888,7 @@
 <section class="ly-sec ly-sec-light" id="info">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
-    <h2>{{section9.h2}}</h2>
+    <h2>{{지역}} {{키워드}} 정보</h2>
     <div class="ly-table-wrap">
       <table class="ly-info-table">
         <tr>
@@ -894,7 +908,7 @@
   </div>
 </section>
 
-<section class="ly-sec ly-sec-mid">
+<section class="ly-sec ly-sec-mid" id="faq">
   <div class="ly-sec-inner">
     <div class="ly-sec-divider"></div>
     <h2>{{section10.h2}}</h2>
@@ -906,6 +920,7 @@
 
 {{링크섹션}}
 
+{{학교ld}}
 
 <!-- ════════════════════════════════════════════
      스크립트
