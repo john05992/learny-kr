@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://learny.kr/sitemap.xml
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://learny.kr/sitemapx.xml
